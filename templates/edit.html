@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %} 
+
+<form action="/products/{{product.id}}" method="post">
+    <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="description" value="{{product.name}}" required>
+    </div>
+    <div>
+        <label for="description">Description</label>
+        <input type="description" id="duration" name="duration" value="{{product.description"}}
+    </div>
+
+
+</form>

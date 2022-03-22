@@ -13,11 +13,6 @@ manufacturer_repository.save(manufacturer1)
 manufacturer2 = Manufacturer("Marvins Cheese Farm", "Restaurant at the Edge of the Universe", 42, "MTPA")
 manufacturer_repository.save(manufacturer2)
 
-print(manufacturer1.__dict__)
-print(manufacturer2.__dict__)
-
-print(manufacturer_repository.select_all())
-
 product1 = Product("Guacamole Manchago", "Manchago made from Guacamole", 10, 15, 30, manufacturer1)
 product_repository.save(product1)
 
