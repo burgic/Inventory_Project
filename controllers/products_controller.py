@@ -33,4 +33,4 @@ def show_product(id):
     product = product_repository.select(id)
     return render_template('/products/<id>/show.html', product = product)
 
-
+# @product_blueprint.route("/")
