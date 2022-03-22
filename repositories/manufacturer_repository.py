@@ -9,7 +9,8 @@ def save(manufacturer):
     sql = "INSERT INTO manufacturers (name, location, payment_days, payment_code) VALUES (%s, %s, %s, %s) RETURNING *"
     values = [manufacturer.name, manufacturer.location, manufacturer.payment_days, manufacturer.payment_code]
     results = run_sql(sql, values)
-    # id = results[0]['id']
+    # print(results)
+    id = results[0]['id']
     manufacturer.id = id
     return manufacturer
 
@@ -20,7 +21,7 @@ def select_all():
     results = run_sql(sql)
     for row in results:
         product = product_repository.select(row['product_id'])
-        manufactuer = Manufacturer(row['name'], row['location'], row['payment_days'], row['completed'], row['id'])
+        manufactuer = Manufacturer(row['name'], row['location'], row['payment_days'], row['payment_code'])
         manufactuers.append(manufactuers)
     return manufactuers
 

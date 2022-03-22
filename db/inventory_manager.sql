@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS manufacturers;
-DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS manufacturers CASCADE;
+DROP TABLE IF EXISTS products CASCADE;
 
 
 CREATE TABLE manufacturers (

@@ -1,4 +1,4 @@
-from flask import Blueprint, Flask, render_template, request
+from flask import Blueprint, Flask, redirect, render_template, request
 
 from repositories import manufacturer_repository
 from repositories import product_repository
@@ -26,3 +26,11 @@ def create_product():
     manufactuer_id = request.form['manufacturer_id']
     product = Product(name, description, stock_quantity, buying_cost, selling_cost, manufactuer_id)
     product_repository.save(product)
+    return redirect('/product')
+
+@product_blueprint.route("/products/<id>", methods=['GET'])
+def show_product(id):
+    product = product_repository.select(id)
+    return render_template('/products/<id>/show.html', product = product)
+
+
