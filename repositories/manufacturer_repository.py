@@ -9,7 +9,7 @@ def save(manufacturer):
     sql = "INSERT INTO manufacturers (name, location, payment_days, payment_code) VALUES (%s, %s, %s, %s) RETURNING *"
     values = [manufacturer.name, manufacturer.location, manufacturer.payment_days, manufacturer.payment_code]
     results = run_sql(sql, values)
-    id = results[0]['id']
+    # id = results[0]['id']
     manufacturer.id = id
     return manufacturer
 

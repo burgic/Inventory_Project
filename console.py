@@ -16,5 +16,5 @@ manufacturer_repository.save(manufacturer2)
 product1 = Product("Guacamole Manchago", "Manchago made from Guacamole", 10, 15, 30, manufacturer1)
 product_repository.save(product1)
 
-product2 = Product("Zaphod's Brie", "Danger Sensing Cheers", 10, 20, 30, manufacturer2)
+product2 = Product("Zaphod's Brie", "Danger Sensing Cheese", 10, 20, 30, manufacturer2)
 product_repository.save(product2)

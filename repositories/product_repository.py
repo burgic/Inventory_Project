@@ -7,7 +7,7 @@ def save(product):
     sql = "INSERT INTO products (name, description, stock_quantity, buying_cost, selling_cost, manufactuer) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"
     values = [product.name, product.description, product.stock_quantity, product.buying_cost, product.selling_cost, product.manufacturer]
     results = run_sql(sql, values)
-    id = results[0]['id']
+    # id = results[0]['id']
     product.id = id
     return product
 
