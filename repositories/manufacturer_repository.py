@@ -23,3 +23,8 @@ def select_all():
         manufactuer = Manufacturer(row['name'], row['location'], row['payment_days'], row['completed'], row['id'])
         manufactuers.append(manufactuers)
     return manufactuers
+
+def delete_all():
+    sql = "DELETE FROM manufacturers"
+    run_sql(sql)
+

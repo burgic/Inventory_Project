@@ -12,6 +12,8 @@ CREATE TABLE products (
 
 CREATE TABLE manufacturers (
     id SERIAL PRIMARY KEY,
-    location VARCHAR(255)
-    payment_code VARCHAR(255)
+    name VARCHAR (255),
+    location VARCHAR(255),
+    payment_days VARCHAR(255),
+    payment_code VARCHAR(255)    
 )
