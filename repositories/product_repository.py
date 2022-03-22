@@ -19,3 +19,10 @@ def delete_all():
 
 def select_all():
     products = []
+    sql = "SELECT * FROM products"
+    results = run_sql(sql)
+    for row in results:
+        product = Product(row['name'], row['description'], row['stock_quantity'], row['buying_cost'], row['selling_cost'], row['manufacturer'], row['id'])
+        products.append(product)
+    return products
+
