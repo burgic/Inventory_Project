@@ -11,4 +11,8 @@ def products():
     products = product_repository.select_all()
     return render_template("product/index.html", all_products = products)
 
-@product_blueprint.route("/")
+@product_blueprint.route("/manufacturers")
+def manufacturers():
+    manufacturers = manufacturer_repository.select_all()
+    return render_template("/manufacturer/index.html", all_manufacturers = manufacturers)
+
