@@ -1,3 +1,4 @@
+from cProfile import run
 from db.run_sql import run_sql
 
 from models.manufacturer import Manufacturer
@@ -29,3 +30,12 @@ def delete_all():
     sql = "DELETE FROM manufacturers"
     run_sql(sql)
 
+def select(id):
+    task = None
+    sql = "SELECT * FROM maunfacturers WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        product = product_repository.select(result['product_id'])
+        manufacturer = Manufacturer(res)

@@ -8,8 +8,22 @@
     </div>
     <div>
         <label for="description">Description</label>
-        <input type="description" id="duration" name="duration" value="{{product.description"}}
+        <input type="text" id="duration" name="duration" value="{{product.description"}} required>
+    </div>
+    <div>
+        <label for="stock_quantity">Stock Quantity</label>
+        <input type="int" id="stock_quantity" name="stock_quantity" value="{{product.stock_quantity}}">
+    </div>
+    <div>
+        <label for="buying_cost">Buying Cost</label>
+        <input type="int" id="buying_cost" name="buying_cost" value="{{product.buying_cost}}">
+    </div>
+    <div>
+        <label for="selling_cost">Selling Cost</label>
+        <input type="int" id="selling_cost" name="selling_cost" value="{{product.selling_cost}}">
     </div>
 
 
 </form>
+
+{% end block %}
