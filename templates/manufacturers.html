@@ -6,21 +6,33 @@
 
 <p>Here are the lovely people that bring us cheese.</p>
 
-{% for manufacturer in all_manufacturers %}
-
-    <div class="manufacturers">
-        <div class="name">
-            {{ manufacturer.name }}
-        <div class="location">
-            {{ manufacturer.location }}
-        <div class="payment_days">
-            {{ manufacturer.payment_days }}
-        </div>
-        </div>
-        </div>
-    </div>
+<table>
+    <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Location</th>
+        <th></th>
+        <th>Payment Days</th>
+        <th></th>
+        <th>Payment Code</th>
+    </tr>
+    {% for manufacturer in all_manufacturers %}
+    <tr>
+        <td><a href="/manufacturers/{{ manufacturer.id }}">{{ manufacturer.name }}</a> </td>
+        <td>|</td>
+        <td>{{ manufacturer.location }}</td>
+    
+        <th>|</th>
+        <td>{{ manufacturer.payment_days }}</td>
+        <th>|</th>
+        <td>{{ manufacturer.payment_code }}</td>
+    </tr>
+    
+</tr>
 
 {% endfor %}
+
+</table>
 
 {% endblock %}
 

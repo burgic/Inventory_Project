@@ -47,7 +47,7 @@ def update_product(id):
     buying_cost = request.form['buying_cost']
     selling_cost = request.form['selling_cost']
     manufacturer_id = request.form['manufacturer_id']
-
+    manufacturer = manufacturer_repository.select(manufacturer_id)
     product = Product(name, description, stock_quantity, buying_cost, selling_cost, manufacturer_id)
     product_repository.update(product)
     return redirect('/products', product = product)
@@ -63,13 +63,17 @@ def new_manufacturer():
     products = product_repository.select_all()
     return render_template("/new_manufacturer.html", title="New Manufacturer", manufacturers = manufacturers)
 
-@product_blueprint.route("/new_manufacturer")
+@product_blueprint.route("/new_manufacturer", methods=['POST'])
 def create_manufacturer():
-    name = request.form.get['name']
-    location = request.form.get['location']
-    payment_days = request.form.get['payment_days']
-    payment_code = request.form.get['payment_code']
-
+    name = request.form['name']
+    location = request.form['location']
+    payment_days = request.form.get('payment_days')
+    payment_code = request.form.get('payment_code')
     manufacturer = Manufacturer(name, location, payment_days, payment_code, id=None)
     manufacturer_repository.save(manufacturer)
     return redirect("/manufacturers")
+
+@product_blueprint.route("/product/<id>/delete", methods=['POST'])
+def delete_product(id):
+    product_repository.delete(id)
+    return redirect('/products')
