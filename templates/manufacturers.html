@@ -1,7 +1,26 @@
 {% extends "base.html" %}
+
 {% block content %}
 
-Here might be a list of manufacturers
+<h1>Manufacturers</h1>
 
-{% end block %}
+<p>Here are the lovely people that bring us cheese.</p>
+
+{% for manufacturer in all_manufacturers %}
+
+    <div class="manufacturers">
+        <div class="name">
+            {{ manufacturer.name }}
+        <div class="location">
+            {{ manufacturer.location }}
+        <div class="payment_days">
+            {{ manufacturer.payment_days }}
+        </div>
+        </div>
+        </div>
+    </div>
+
+{% endfor %}
+
+{% endblock %}
 

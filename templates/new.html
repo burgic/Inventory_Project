@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% block content %} 
 
-<form action ="/products" method="post">
+<br>
+
+
+<form action ="/new" method="post">
     <div>
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Name" required>
@@ -12,17 +15,32 @@
         <input type="text" id="description" name="description" placeholder="Description" required>
     </div>
     <div>
-        <label for="stock stock_quantity">Stock Quantity</label>
-        <input type="number" id="stock quantity" name="stock quantity" placeholder="Stock Quantity" required>
+        <label for="stock_quantity">Stock Quantity</label>
+        <input type="number" id="stock_quantity" name="stock_quantity" placeholder="Stock Quantity" required>
     </div>
     <div>
-        <label for="buying cost">Buying Cost</label>
-        <input type="number" id="buying cost" name="buying cost" placeholder="Buying Cost" required>
+        <label for="buying_cost">Buying Cost</label>
+        <input type="number" id="buying_cost" name="buying_cost" placeholder="Buying Cost" required>
     </div>
     <div>
-        <label for="selling cost">Selling Cost</label>
-        <input type="number" id="selling cost" name="selling cost" placeholder="Selling Cost" required>
+        <label for="selling_cost">Selling Cost</label>
+        <input type="number" id="selling_cost" name="selling_cost" placeholder="Selling Cost" required>
     </div>
+    <div>
+        <label for="manufacturer_id">Manufacturer</label>
+        <!-- <input type="datalist" id="manufacturer_id" name="Manufacturer" placeholder="Manufacturer" required> -->
+        <select name ="manufacturer_id">
+    {% for manufacturer in manufacturers %}
+        <option name ="manufacturer_id"value = "{{ manufacturer.id }}">{{ manufacturer.name }}</option>
+    {% endfor %}
+    </select>
+
+
+    </div>
+    <br>
+
+    <button type="submit">Add Cheese</button>
+
 </form>
 
-{% end block %}
+{% endblock %}

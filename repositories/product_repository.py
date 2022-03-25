@@ -20,7 +20,7 @@ def select_all():
     sql = "SELECT * FROM products"
     results = run_sql(sql)
     for row in results:
-        product = Product(row['name'], row['description'], row['stock_quantity'], row['buying_cost'], row['selling_cost'], row['manufacturer'], row['id'])
+        product = Product(row['name'], row['description'], row['stock_quantity'], row['buying_cost'], row['selling_cost'], row['manufacturer_id'], row['id'])
         products.append(product)
     return products
 
@@ -30,8 +30,8 @@ def delete(id):
     run_sql(sql)
 
 def update(product):
-    sql = "UPDATE products SET (name, description, stock_quantity, buying_cost, selling_cost, manufacturer) = (%s, %s, %s, %s, %s %s) WHERE id =%s"
-    values = [product.name, product.description, product.stock_quantity, product.buying_cost, product.selling_cost, product.manufacturer, product.id]
+    sql = "UPDATE products SET (name, description, stock_quantity, buying_cost, selling_cost, manufacturer_id) = (%s, %s, %s, %s, %s %s) WHERE id =%s"
+    values = [product.name, product.description, product.stock_quantity, product.buying_cost, product.selling_cost, product.manufacturer.id, product.id]
     run_sql(sql, values)
 
 def products(product):

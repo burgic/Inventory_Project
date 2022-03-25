@@ -16,26 +16,27 @@ def save(manufacturer):
     return manufacturer
 
 def select_all():
-    manufactuers = []
+    manufacturers = []
 
     sql = "SELECT * FROM manufacturers"
     results = run_sql(sql)
     for row in results:
-        product = product_repository.select(row['product_id'])
-        manufactuer = Manufacturer(row['name'], row['location'], row['payment_days'], row['payment_code'])
-        manufactuers.append(manufactuers)
-    return manufactuers
+        manufactuer = Manufacturer(row['name'], row['location'], row['payment_days'], row['payment_code'], row['id'])
+        manufacturers.append(manufactuer)
+    return manufacturers
 
 def delete_all():
     sql = "DELETE FROM manufacturers"
     run_sql(sql)
 
 def select(id):
-    task = None
-    sql = "SELECT * FROM maunfacturers WHERE id = %s"
+    manufacturer = None
+    sql = "SELECT * FROM manufacturers WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)[0]
-
-    if result is not None:
-        product = product_repository.select(result['product_id'])
-        manufacturer = Manufacturer(res)
+    result = run_sql(sql, values)
+    print(result)
+    # if result:
+    item = result[0]
+    
+    manufacturer = Manufacturer(item['name'], item['location'], item['payment_days'], item['payment_code'], item['id'])
+    return manufacturer
