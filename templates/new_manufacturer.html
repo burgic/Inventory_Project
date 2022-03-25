@@ -1,7 +1,27 @@
-{% extends "base.html"}
+{% extends "base.html" %}
 
 {% block content %}
 
+<div align="center" class= "form">
+<form action="/new_manufacturer" method="post">
+    <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="name">
+    </div>
+    <div>
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" placeholder="e.g Wensleydale">
+    </div>
+    <div>
+        <label for="payment_days">Payment Days</label>
+        <input type="number" id="payment days" name="payment days" placholder="e.g. 30">
+    </div>
+        <label for="payment_code">Payment Code</label>
+        <input type="text" id="payment code" name="payment code" placeholder="e.g. aa33">
+        <button type="submit">Add Manufacturer</butto>
+    </div>
+
+</form>
 
 {% endblock %}
 
