@@ -45,3 +45,11 @@ def products(product):
         products.append(product)
     return products
 
+def select(id):
+    product = None
+    sql = "SELECT * FROM products WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    if result is not None:
+        product = Product(result['name'], result['description'], result['stock_quantity'], result['buying_cost'], result['selling_cost'], result['id'])
+    return product

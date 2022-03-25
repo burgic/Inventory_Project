@@ -4,21 +4,29 @@
 
 <h1>Different Cheeses We Got. None Are Made Up.</h1>
 
+<table>
+
+<tr>
+    <th>Name</th>
+    <th></th>
+    <th>Description of t'cheese</th>
+</tr>
 {% for product in all_products %}
-
-    <div class="product">
-        <div class="content">
-            <h2>Cheese</h2>
-            {{ product.name }}
-        <p><div class="description">
-            <h2>Description of t'Cheese</h2>
-            {{ product.description }}
-        </div></p>
-        </div>
-    </div>
-
+<tr>
+    <td><a href=/product/{{ product.id }}>{{ product.name }}</a></td>
+    <td>|</td>
+    <td>{{ product.description }}</td>
+    <td>|</td>
+    <td><a href=/products/{{ product.id }}>Edit</a></td>
+    <td>|</td>
+    <td><form action="/products/{{ product.id }}/delete" method="POST">
+        <input class="btn btn--danger" type="submit" value="Delete">
+    </td>
+</tr>
 
 
 {% endfor %}
+
+</table>
 
 {% endblock %}

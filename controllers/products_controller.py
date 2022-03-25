@@ -37,7 +37,7 @@ def create_product():
 @product_blueprint.route("/products/<id>", methods=['GET'])
 def show_product(id):
     product = product_repository.select(id)
-    return render_template('/products/<id>/show.html', product = product)
+    return render_template('/products/<id>.html', product = product)
 
 @product_blueprint.route("/products/<id>", methods=['POST'])
 def update_product(id):
@@ -73,7 +73,7 @@ def create_manufacturer():
     manufacturer_repository.save(manufacturer)
     return redirect("/manufacturers")
 
-@product_blueprint.route("/product/<id>/delete", methods=['POST'])
+@product_blueprint.route("/product/<id>/delete", methods=['POST', 'GET'])
 def delete_product(id):
     product_repository.delete(id)
     return redirect('/products')
