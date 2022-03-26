@@ -26,6 +26,12 @@
         <td>{{ manufacturer.payment_days }}</td>
         <th>|</th>
         <td>{{ manufacturer.payment_code }}</td>
+        <th>|</th>
+        <td><a href="/manufacturer/{{ manufacturer.id }}">Edit</a></td>
+        <th>|</th>
+        <td><form action="/manufacturers/{{ manufacturer.id }}/delete" method="POST">
+            <input class="btn btn--danger" type="submit" value="Delete">
+        </td>
     </tr>
     
 </tr>
@@ -33,6 +39,12 @@
 {% endfor %}
 
 </table>
+
+<br>
+
+<button>
+<a href="/new_manfacturer">Add New Manufacturer</a>
+</button>
 
 {% endblock %}
 
